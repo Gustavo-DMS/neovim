@@ -1,0 +1,9 @@
+../
+C:\Users\pipeg\AppData\Local\nvim/
+| .git/
+| after/
+| lua/
+| NetrwTreeListing
+| Readme.md
+| init.lua
+| lazy-lock.json

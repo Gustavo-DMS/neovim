@@ -1,4 +1,4 @@
-vim.keymap.set("n","<leader>pv",vim.cmd.Ex)
+vim.keymap.set("n","<leader>pv",vim.cmd.Vex)
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
