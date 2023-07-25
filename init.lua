@@ -8,6 +8,5 @@ vim.g.localleader = "\\"
 require("set")
 require("plugins")
 require("remap")
-require("whichkey")
 require("netrw")
 vim.cmd [[colorscheme moonfly]]

@@ -1,9 +1,6 @@
 ../
-C:\Users\pipeg\AppData\Local\nvim/
-| .git/
-| after/
-| lua/
-| NetrwTreeListing
-| Readme.md
-| init.lua
-| lazy-lock.json
+C:\Users\pipeg\AppData\Local\nvim\lua/
+│ netrw.lua
+│ plugins.lua
+│ remap.lua
+│ set.lua

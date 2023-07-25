@@ -53,21 +53,18 @@ lsp.on_attach(function(client, bufnr)
     lsp.buffer_autoformat()
 end)
 
-local function allow_format(servers)
-    return function(client) return vim.tbl_contains(servers, client.name) end
-end
 
-lsp.on_attach(function(client, bufnr)
-    lsp.default_keymaps({ buffer = bufnr })
-    local opts = { buffer = bufnr }
-
-    vim.keymap.set({ 'n', 'x' }, '<leader>f', function()
-        vim.lsp.buf.format({
-            async = false,
-            timeout_ms = 10000,
-        })
-    end, opts)
-end)
+--lsp.on_attach(function(client, bufnr)
+--    lsp.default_keymaps({ buffer = bufnr })
+--    local opts = { buffer = bufnr }
+--
+--    vim.keymap.set({ 'n', 'x' }, '<leader>f', function()
+--        vim.lsp.buf.format({
+--            async = false,
+--            timeout_ms = 10000,
+--        })
+--    end, opts)
+--end)
 lsp.setup()
 
 vim.diagnostic.config({
