@@ -117,5 +117,6 @@ require("lazy").setup({
     {
         'rmagatti/auto-session',
     },
+    'ThePrimeagen/vim-be-good',
 
 })
