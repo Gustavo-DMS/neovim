@@ -18,7 +18,7 @@ vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
 
-vim.opt.scrolloff = 0
+vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
@@ -27,3 +27,14 @@ vim.opt.updatetime = 50
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.o.foldlevel = 999999
+
+vim.opt.wrap = false
+
+vim.o.foldcolumn = '0' -- '0' is not bad
+vim.o.foldnestmax = 2
+vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.opt.list = true
+vim.opt.listchars:append "space:⋅"

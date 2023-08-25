@@ -30,3 +30,7 @@ vim.keymap.set({ 'n', 'v' }, "<C-n>", vim.cmd.bnext)
 vim.keymap.set({ 'n', 'v' }, "<C-p>", vim.cmd.bprev)
 -- Para ver os todos dos arquivos pelo telescope
 vim.keymap.set('n', '<leader>tt', vim.cmd.TodoTelescope)
+
+-- para dar split nas telas
+vim.keymap.set('n', '<leader>vs', vim.cmd.vs)
+vim.keymap.set('n', '<leader>hs', vim.cmd.sp)

@@ -79,8 +79,8 @@ require("lazy").setup({
         },
     },
     "windwp/nvim-ts-autotag",
-    { 'akinsho/bufferline.nvim', version = "*",                              dependencies = 'nvim-tree/nvim-web-devicons' },
-    'Yggdroot/indentLine',
+    { 'akinsho/bufferline.nvim',            version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
+    { "lukas-reineke/indent-blankline.nvim" },
     'nvim-lualine/lualine.nvim',
     {
         "folke/trouble.nvim",
@@ -92,7 +92,7 @@ require("lazy").setup({
         },
     },
     'easymotion/vim-easymotion',
-    { 'kevinhwang91/nvim-ufo',   dependencies = 'kevinhwang91/promise-async' },
+    { 'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async' },
     'numToStr/Comment.nvim',
     "roobert/tailwindcss-colorizer-cmp.nvim",
     'norcalli/nvim-colorizer.lua',
@@ -118,5 +118,15 @@ require("lazy").setup({
         'rmagatti/auto-session',
     },
     'ThePrimeagen/vim-be-good',
+    {
+        'glacambre/firenvim',
+
+        -- Lazy load firenvim
+        -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
+        lazy = not vim.g.started_by_firenvim,
+        build = function()
+            vim.fn["firenvim#install"](0)
+        end
+    }
 
 })
