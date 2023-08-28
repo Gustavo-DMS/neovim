@@ -9,7 +9,8 @@
 - ~~colocar dependencias no mason~~
 - TROCAR NULL_LS
 - Aprimorar integração git
-- Better terminal
-  - talvez wls
-  - MSYS2
-  - VM/Linux
+### Usando WSL
+~~- Better terminal~~
+~~  - talvez wls   ~~
+~~  - MSYS2        ~~
+~~  - VM/Linux     ~~
