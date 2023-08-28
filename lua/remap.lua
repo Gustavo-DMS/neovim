@@ -20,10 +20,10 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 -- para trocar de navegar entre buffers
-vim.keymap.set({ 'n', 'v' }, "<C-h>", "<C-w>h")
-vim.keymap.set({ 'n', 'v' }, "<C-j>", "<C-w>j")
-vim.keymap.set({ 'n', 'v' }, "<C-k>", "<C-w>k")
-vim.keymap.set({ 'n', 'v' }, "<C-l>", "<C-w>l")
+vim.keymap.set({ 'n', 'v' }, "<C-h>", "<cmd> TmuxNavigateLeft <CR>")
+vim.keymap.set({ 'n', 'v' }, "<C-j>", "<cmd> TmuxNavigateDown<CR>")
+vim.keymap.set({ 'n', 'v' }, "<C-k>", "<cmd> TmuxNavigateUp<CR>")
+vim.keymap.set({ 'n', 'v' }, "<C-l>", "<cmd> TmuxNavigateRight<CR>")
 
 -- para trocar de buffers
 vim.keymap.set({ 'n', 'v' }, "<C-n>", vim.cmd.bnext)

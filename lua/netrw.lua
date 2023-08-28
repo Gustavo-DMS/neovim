@@ -6,7 +6,7 @@ vim.g.netrw_browse_split = 0
 
 vim.g.netrw_altv = 1
 
-vim.g.netrw_winsize = 25
+vim.g.netrw_winsize = 26
 --augroup ProjectDrawer
 --autocmd!
 --autocmd VimEnter * :Vexplore
