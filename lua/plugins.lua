@@ -129,5 +129,8 @@ require("lazy").setup({
         end
     },
     'christoomey/vim-tmux-navigator',
-
+    'mfussenegger/nvim-dap',
+    "jay-babu/mason-nvim-dap.nvim",
+    'rcarriga/nvim-dap-ui',
+    "nvim-treesitter/nvim-treesitter-context",
 })
