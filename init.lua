@@ -9,7 +9,7 @@ require("set")
 require("plugins")
 require("remap")
 require("netrw")
-vim.cmd [[colorscheme moonfly]]
+vim.cmd [[colorscheme onedark_dark]]
 local augroup = vim.api.nvim_create_augroup
 local ThePrimeagenGroup = augroup('ThePrimeagen', {})
 

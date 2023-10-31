@@ -14,6 +14,10 @@ require("lazy").setup({
     { "folke/which-key.nvim",      cond = not vim.g.vscode },
     { "bluz71/vim-moonfly-colors", name = "moonfly",       lazy = false, priority = 1000, cond = not vim.g.vscode },
     {
+        "olimorris/onedarkpro.nvim",
+        priority = 1000 -- Ensure it loads first
+    },
+    {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.2',
         -- or                              , branch = '0.1.x',
