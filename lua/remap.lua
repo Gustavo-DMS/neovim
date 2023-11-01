@@ -10,7 +10,11 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- colar sem copiar testo
-vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
+vim.keymap.set({ "n", "v" }, "<leader>P", [["+P]])
+vim.keymap.set({ "n", "v" }, "<leader><M-p>", [["_dP]])
+
+
 
 -- next greatest remap ever : asbjornHaland
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
