@@ -12,7 +12,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- colar sem copiar testo
 vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
 vim.keymap.set({ "n", "v" }, "<leader>P", [["+P]])
-vim.keymap.set({ "n", "v" }, "<leader><M-p>", [["_dP]])
+vim.keymap.set({ "n", "v" }, "<leader><C-p>", [["_dP]])
 
 
 
