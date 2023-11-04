@@ -1,9 +1,21 @@
+local function close_neo_tree()
+    require 'neo-tree.sources.manager'.close_all()
+    vim.notify('closed all')
+end
+
 require("auto-session").setup {
     log_level = vim.log.levels.ERROR,
     auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
     auto_session_use_git_branch = false,
-
     auto_session_enable_last_session = false,
+    auto_session_create_enabled = false,
+    auto_save_enabled = true,
+    auto_restore_enabled = true,
+
+    bypass_session_save_file_types = { "neo-tree" },
+    pre_save_cmds = {
+        close_neo_tree,
+    },
 
     -- ⚠️ This will only work if Telescope.nvim is installed
     -- The following are already the default values, no need to provide them if these are already the settings you want.
@@ -20,3 +32,13 @@ require("auto-session").setup {
 vim.keymap.set("n", "<C-s>", require("auto-session.session-lens").search_session, {
     noremap = true,
 })
+
+
+
+
+
+
+
+
+require 'auto-session'.setup {
+}
