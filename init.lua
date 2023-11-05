@@ -35,11 +35,4 @@ autocmd({ "BufWritePre" }, {
     command = "%s/\\s\\+$//e",
 })
 
-vim.keymap.set('n', 'zi', function()
-    if vim.o.foldcolumn == "0" then
-        vim.o.foldcolumn = "3"
-    else
-        vim.o.foldcolumn = "0"
-    end
-end)
 vim.cmd [[colorscheme onedark_dark]]
