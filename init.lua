@@ -1,5 +1,4 @@
 --[[init.lua ]]
-
 --- LEADER
 vim.g.mapleader = " "
 vim.g.localleader = "\\"
@@ -9,7 +8,6 @@ require("set")
 require("plugins")
 require("remap")
 require("netrw")
-vim.cmd [[colorscheme onedark_dark]]
 local augroup = vim.api.nvim_create_augroup
 local ThePrimeagenGroup = augroup('ThePrimeagen', {})
 
@@ -44,3 +42,4 @@ vim.keymap.set('n', 'zi', function()
         vim.o.foldcolumn = "0"
     end
 end)
+vim.cmd [[colorscheme onedark_dark]]

@@ -83,7 +83,15 @@ require("lazy").setup({
         },
     },
     "windwp/nvim-ts-autotag",
-    { 'akinsho/bufferline.nvim',            version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
+    {
+        'romgrk/barbar.nvim',
+        dependencies = {
+            'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
+            'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+        },
+        init = function() vim.g.barbar_auto_setup = false end,
+        version = '^1.0.0', -- optional: only update when a new 1.x version is released
+    },
     { "lukas-reineke/indent-blankline.nvim" },
     'nvim-lualine/lualine.nvim',
     {
@@ -96,7 +104,7 @@ require("lazy").setup({
         },
     },
     'easymotion/vim-easymotion',
-    { 'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async' },
+    { 'kevinhwang91/nvim-ufo',              dependencies = 'kevinhwang91/promise-async' },
     'numToStr/Comment.nvim',
     "roobert/tailwindcss-colorizer-cmp.nvim",
     'norcalli/nvim-colorizer.lua',
@@ -137,4 +145,6 @@ require("lazy").setup({
     "jay-babu/mason-nvim-dap.nvim",
     'rcarriga/nvim-dap-ui',
     "nvim-treesitter/nvim-treesitter-context",
+    'tikhomirov/vim-glsl',
+    'ThePrimeagen/harpoon',
 })

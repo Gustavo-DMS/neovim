@@ -3,6 +3,12 @@ local function close_neo_tree()
     vim.notify('closed all')
 end
 
+-- Set mapping for searching a session.
+-- ⚠️ This will only work if Telescope.nvim is installed
+vim.keymap.set("n", "<C-s>", require("auto-session.session-lens").search_session, {
+    noremap = true,
+})
+
 require("auto-session").setup {
     log_level = vim.log.levels.ERROR,
     auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
@@ -25,20 +31,4 @@ require("auto-session").setup {
         theme_conf = { border = true },
         previewer = false,
     },
-}
-
--- Set mapping for searching a session.
--- ⚠️ This will only work if Telescope.nvim is installed
-vim.keymap.set("n", "<C-s>", require("auto-session.session-lens").search_session, {
-    noremap = true,
-})
-
-
-
-
-
-
-
-
-require 'auto-session'.setup {
 }

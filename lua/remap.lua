@@ -42,3 +42,6 @@ vim.keymap.set('n', '<leader>hs', vim.cmd.sp)
 vim.keymap.set('n', '<leader>db', "<cmd> DapToggleBreakpoint <cr>")
 vim.keymap.set('n', '<leader>dr', "<cmd> DapContinue <cr>")
 vim.keymap.set('n', '<leader>dur', ":lua require('dapui').open({reset=true}) <cr>")
+
+-- Barbar
+vim.keymap.set('n', '<leader>pb', '<Cmd>BufferPick<CR>')
