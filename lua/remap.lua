@@ -86,9 +86,9 @@ vim.keymap.set('n', '<leader>pb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
 -- Autosession
-vim.keymap.set("n", "<C-s>", require("auto-session.session-lens").search_session, {
-    noremap = true,
-})
+-- vim.keymap.set("n", "<C-s>", require("auto-session.session-lens").search_session, {
+--     noremap = true,
+-- })
 
 -- Fugitive
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
@@ -100,10 +100,9 @@ local ui = require("harpoon.ui")
 vim.keymap.set("n", "<leader>a", mark.add_file)
 vim.keymap.set("n", "<C-m>", ui.toggle_quick_menu)
 
-vim.keymap.set("n", "<C-t>", function() ui.nav_file(1) end)
-vim.keymap.set("n", "<C-y>", function() ui.nav_file(2) end)
-vim.keymap.set("n", "<C-g>", function() ui.nav_file(3) end)
-vim.keymap.set("n", "<C-h>", function() ui.nav_file(4) end)
+vim.keymap.set("n", "<C-q>", function() ui.nav_file(1) end)
+vim.keymap.set("n", "<C-w>", function() ui.nav_file(2) end)
+vim.keymap.set("n", "<C-e>", function() ui.nav_file(3) end)
 
 -- UFOlds
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds)

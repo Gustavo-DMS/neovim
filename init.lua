@@ -36,3 +36,4 @@ autocmd({ "BufWritePre" }, {
 })
 
 vim.cmd [[colorscheme onedark_dark]]
+vim.cmd [[lua require("persistence").load()]]

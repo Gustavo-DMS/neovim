@@ -12,7 +12,7 @@ require 'barbar'.setup {
 
     -- A buffer to this direction will be focused (if it exists) when closing the current buffer.
     -- Valid options are 'left' (the default), 'previous', and 'right'
-    focus_on_close = 'left',
+    focus_on_close = 'right',
 
     -- Disable highlighting file icons in inactive buffers
     highlight_inactive_file_icons = false,
@@ -52,6 +52,7 @@ require 'barbar'.setup {
         inactive = { button = '×' },
         visible = { modified = { buffer_number = false } },
     },
+    insert_at_end = true,
     highlight_alternate = true,
 
     -- Sets the maximum padding width with which to surround each tab
