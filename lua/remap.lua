@@ -2,7 +2,7 @@
 vim.keymap.set("n", "<leader>pv", "<cmd>Neotree toggle<cr>")
 
 -- Toggle wordWrap
-vim.keymap.set('n', "<M-z>", '<cmd>set nowrap!<cr>')
+vim.keymap.set('n', "<leader>vww", '<cmd>set nowrap!<cr>')
 
 -- Move text on visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -12,7 +12,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
--- colar sem copiar testo
+-- colar sem copiar testo e coloar direto do clipboard
 vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
 vim.keymap.set({ "n", "v" }, "<leader>P", [["+P]])
 vim.keymap.set({ "n", "v" }, "<leader><C-p>", [["_dP]])
@@ -40,10 +40,6 @@ vim.keymap.set({ 'n', 'v' }, "<C-p>", vim.cmd.bprev)
 -- Para ver os TODOs dos arquivos pelo telescope
 vim.keymap.set('n', '<leader>tt', vim.cmd.TodoTelescope)
 
--- para dar split nas telas
-vim.keymap.set('n', '<leader>vs', vim.cmd.vs)
-vim.keymap.set('n', '<leader>hs', vim.cmd.sp)
-
 -- Dap keymaps
 vim.keymap.set('n', '<leader>db', "<cmd> DapToggleBreakpoint <cr>")
 vim.keymap.set('n', '<leader>dr', "<cmd> DapContinue <cr>")
@@ -56,9 +52,11 @@ vim.keymap.set('n', '<leader>bp', '<Cmd>BufferPick<CR>')
 vim.keymap.set("n", "<leader>tq", "<cmd>TroubleToggle quickfix<cr>",
     { silent = true, noremap = true }
 )
+
 vim.keymap.set("n", "<leader>td", "<cmd>TroubleToggle document_diagnostics<cr>",
     { silent = true, noremap = true }
 )
+
 vim.keymap.set("n", "<leader>tw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
     { silent = true, noremap = true }
 )
@@ -100,9 +98,9 @@ local ui = require("harpoon.ui")
 vim.keymap.set("n", "<leader>a", mark.add_file)
 vim.keymap.set("n", "<C-m>", ui.toggle_quick_menu)
 
-vim.keymap.set("n", "<C-q>", function() ui.nav_file(1) end)
-vim.keymap.set("n", "<C-w>", function() ui.nav_file(2) end)
-vim.keymap.set("n", "<C-e>", function() ui.nav_file(3) end)
+-- vim.keymap.set("n", "<C-q>", function() ui.nav_file(1) end)
+-- vim.keymap.set("n", "<C-w>", function() ui.nav_file(2) end)
+-- vim.keymap.set("n", "<C-e>", function() ui.nav_file(3) end)
 
 -- UFOlds
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds)

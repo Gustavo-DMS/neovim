@@ -151,4 +151,6 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter-context",
     'tikhomirov/vim-glsl',
     'ThePrimeagen/harpoon',
+    "github/copilot.vim",
+    "luckasRanarison/tree-sitter-hypr",
 })
