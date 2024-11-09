@@ -11,17 +11,35 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
-    { "folke/which-key.nvim",      cond = not vim.g.vscode },
-    { "bluz71/vim-moonfly-colors", name = "moonfly",       lazy = false, priority = 1000, cond = not vim.g.vscode },
+    {
+        "folke/which-key.nvim",
+        cond = not vim.g.vscode
+    },
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        opts = {
+            preset = 'modern',
+            delay = 500,
+        },
+        keys = {
+        },
+    },
+    -- { "bluz71/vim-moonfly-colors", name = "moonfly",       lazy = false, priority = 1000, cond = not vim.g.vscode },
     {
         "olimorris/onedarkpro.nvim",
         priority = 1000 -- Ensure it loads first
     },
     {
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.2',
         -- or                              , branch = '0.1.x',
-        dependencies = { 'nvim-lua/plenary.nvim' },
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            {
+                'nvim-telescope/telescope-fzf-native.nvim',
+                build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
+            }
+        },
         cond = not vim.g.vscode
     },
     {
@@ -47,7 +65,19 @@ require("lazy").setup({
         build = function() vim.fn["mkdp#util#install"]() end,
         cond = not vim.g.vscode
     },
-    "tpope/vim-fugitive",
+    -- "tpope/vim-fugitive",
+    {
+        "NeogitOrg/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim",  -- required
+            "sindrets/diffview.nvim", -- optional - Diff integration
+
+            -- Only one of these is needed, not both.
+            "nvim-telescope/telescope.nvim", -- optional
+            "ibhagwan/fzf-lua",              -- optional
+        },
+        config = true
+    },
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
@@ -83,6 +113,8 @@ require("lazy").setup({
         },
     },
     "windwp/nvim-ts-autotag",
+    'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
+    'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
     {
         'romgrk/barbar.nvim',
         dependencies = {
@@ -96,12 +128,8 @@ require("lazy").setup({
     'nvim-lualine/lualine.nvim',
     {
         "folke/trouble.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = {
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-            -- refer to the configuration section below
-        },
+        opts = {}, -- for default options, refer to the configuration section for custom setup.
+        cmd = "Trouble",
     },
     'easymotion/vim-easymotion',
     { 'kevinhwang91/nvim-ufo',              dependencies = 'kevinhwang91/promise-async' },
@@ -145,12 +173,78 @@ require("lazy").setup({
         end
     },
     'christoomey/vim-tmux-navigator',
-    'mfussenegger/nvim-dap',
-    "jay-babu/mason-nvim-dap.nvim",
-    'rcarriga/nvim-dap-ui',
+    -- 'mfussenegger/nvim-dap',
+    -- "jay-babu/mason-nvim-dap.nvim",
+    -- 'rcarriga/nvim-dap-ui',
     "nvim-treesitter/nvim-treesitter-context",
     'tikhomirov/vim-glsl',
-    'ThePrimeagen/harpoon',
+    {
+        'ThePrimeagen/harpoon',
+        branch = 'harpoon2',
+    },
     "github/copilot.vim",
     "luckasRanarison/tree-sitter-hypr",
+    {
+        'kristijanhusak/vim-dadbod-ui',
+        dependencies = {
+            { 'tpope/vim-dadbod',                     lazy = true },
+            { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
+        },
+        cmd = {
+            'DBUI',
+            'DBUIToggle',
+            'DBUIAddConnection',
+            'DBUIFindBuffer',
+        },
+        init = function()
+            -- Your DBUI configuration
+            vim.g.db_ui_use_nerd_fonts = 1
+        end,
+    },
+    {
+        "epwalsh/obsidian.nvim",
+        version = "*", -- recommended, use latest release instead of latest commit
+        lazy = true,
+        ft = "markdown",
+        -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+        -- event = {
+        --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+        --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
+        --   "BufReadPre path/to/my-vault/**.md",
+        --   "BufNewFile path/to/my-vault/**.md",
+        -- },
+        dependencies = {
+            -- Required.
+            "nvim-lua/plenary.nvim",
+
+            -- see below for full list of optional dependencies 👇
+        },
+        opts = {
+            workspaces = {
+                -- {
+                --     name = "personal",
+                --     path = "~/vaults/personal",
+                -- },
+                {
+                    name = "work",
+                    path = "~/vaults/work",
+                },
+            },
+
+            -- see below for full list of options 👇
+        },
+    },
+    {
+        "LunarVim/bigfile.nvim",
+    },
+    {
+        'mrcjkb/rustaceanvim',
+        version = '^5', -- Recommended
+        lazy = false,   -- This plugin is already lazy
+        ["rust-analyzer"] = {
+            cargo = {
+                allFeatures = true,
+            },
+        }
+    }
 })

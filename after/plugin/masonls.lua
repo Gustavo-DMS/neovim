@@ -6,13 +6,13 @@ require("mason-null-ls").setup({
     automatic_installation = false,
     handlers = {},
 })
-require("mason-nvim-dap").setup({
-    ensure_installed = {
-        -- Opt to list sources here, when available in mason.
-    },
-    automatic_installation = false,
-    handlers = {},
-})
+-- require("mason-nvim-dap").setup({
+--     ensure_installed = {
+--         -- Opt to list sources here, when available in mason.
+--     },
+--     automatic_installation = false,
+--     handlers = {},
+-- })
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 require("null-ls").setup({

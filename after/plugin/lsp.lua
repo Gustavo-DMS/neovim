@@ -48,18 +48,18 @@ lsp.set_preferences({
 })
 
 lsp.on_attach(function(client, bufnr)
-    local opts = { buffer = bufnr, remap = false }
 
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-    vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-    vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-    vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-    vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-    vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { buffer = bufnr, remap = false, desc = "Go to definition" })
+    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, { buffer = bufnr, remap = false, desc = "hover" })
+    vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end,
+        { buffer = bufnr, remap = false, desc = "view workspace symbol" })
+    vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, { buffer = bufnr, remap = false, desc = "view diagnostics" })
+    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, { buffer = bufnr, remap = false, desc = "next diagnostic" })
+    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, { buffer = bufnr, remap = false, desc = "prev diagnostic" })
+    vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, { buffer = bufnr, remap = false, desc = "view code actions" })
+    vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, { buffer = bufnr, remap = false, desc = "view references" })
+    vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, { buffer = bufnr, remap = false, desc = "rename all" })
+    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, { buffer = bufnr, remap = false, desc = "view definition" })
     lsp.default_keymaps({ buffer = bufnr })
     lsp.buffer_autoformat()
 end)
@@ -89,3 +89,14 @@ end
 
 require('lspconfig').tsserver.setup { commands = {
     OrganizeImports = { organize_imports, description = "Organize Imports" } } }
+
+
+local fqbn = "arduino:avr:mega"
+require('lspconfig').arduino_language_server.setup {
+    cmd = {
+        "arduino-language-server",
+        "-cli-config", "/home/gustavo/.arduino15/arduino-cli.yaml",
+        "-fqbn",
+        fqbn
+    },
+}

@@ -132,6 +132,12 @@ ins_left {
     color = { fg = colors.magenta, gui = 'bold' },
 }
 
+ins_left {
+    'filetype',
+    icon_only = true,
+
+}
+
 ins_left { 'location' }
 
 ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
@@ -159,8 +165,8 @@ ins_left {
     -- Lsp server name .
     function()
         local msg = 'No Active Lsp'
-        local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-        local clients = vim.lsp.get_active_clients()
+        local buf_ft = vim.api.nvim_get_option_value('filetype', { buf = 0 })
+        local clients = vim.lsp.get_clients()
         if next(clients) == nil then
             return msg
         end
@@ -190,6 +196,7 @@ ins_right {
     icons_enabled = true, -- I think icons are cool but Eviline doesn't have them. sigh
     color = { fg = colors.green, gui = 'bold' },
 }
+
 
 ins_right {
     'branch',

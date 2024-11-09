@@ -8,6 +8,11 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+vim.opt.timeoutlen = 300
+
 vim.opt.smartindent = true
 
 vim.opt.swapfile = false
@@ -16,7 +21,8 @@ vim.opt.backup = false
 vim.opt.undofile = true
 
 vim.opt.hlsearch = false
-vim.opt.incsearch = true
+vim.opt.hlsearch = true
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.opt.termguicolors = true
 
