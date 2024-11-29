@@ -13,10 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     {
         "folke/which-key.nvim",
-        cond = not vim.g.vscode
-    },
-    {
-        "folke/which-key.nvim",
         event = "VeryLazy",
         opts = {
             preset = 'modern',
@@ -58,14 +54,6 @@ require("lazy").setup({
         "tpope/vim-surround",
         cond = not vim.g.vscode
     },
-    {
-        "iamcco/markdown-preview.nvim",
-        ft = "markdown",
-        cmd = { "MarkdownPreview", "MarkdownPreviewStop" },
-        build = function() vim.fn["mkdp#util#install"]() end,
-        cond = not vim.g.vscode
-    },
-    -- "tpope/vim-fugitive",
     {
         "NeogitOrg/neogit",
         dependencies = {
@@ -115,15 +103,15 @@ require("lazy").setup({
     "windwp/nvim-ts-autotag",
     'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
     'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
-    {
-        'romgrk/barbar.nvim',
-        dependencies = {
-            'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
-            'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
-        },
-        init = function() vim.g.barbar_auto_setup = false end,
-        version = '^1.0.0', -- optional: only update when a new 1.x version is released
-    },
+    -- {
+    --     'romgrk/barbar.nvim',
+    --     dependencies = {
+    --         'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
+    --         'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    --     },
+    --     init = function() vim.g.barbar_auto_setup = false end,
+    --     version = '^1.0.0', -- optional: only update when a new 1.x version is released
+    -- },
     { "lukas-reineke/indent-blankline.nvim" },
     'nvim-lualine/lualine.nvim',
     {
@@ -162,16 +150,16 @@ require("lazy").setup({
         }
     },
     'ThePrimeagen/vim-be-good',
-    {
-        'glacambre/firenvim',
-
-        -- Lazy load firenvim
-        -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
-        lazy = not vim.g.started_by_firenvim,
-        build = function()
-            vim.fn["firenvim#install"](0)
-        end
-    },
+    -- {
+    --     'glacambre/firenvim',
+    --
+    --     -- Lazy load firenvim
+    --     -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
+    --     lazy = not vim.g.started_by_firenvim,
+    --     build = function()
+    --         vim.fn["firenvim#install"](0)
+    --     end
+    -- },
     'christoomey/vim-tmux-navigator',
     -- 'mfussenegger/nvim-dap',
     -- "jay-babu/mason-nvim-dap.nvim",
@@ -201,39 +189,39 @@ require("lazy").setup({
             vim.g.db_ui_use_nerd_fonts = 1
         end,
     },
-    {
-        "epwalsh/obsidian.nvim",
-        version = "*", -- recommended, use latest release instead of latest commit
-        lazy = true,
-        ft = "markdown",
-        -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
-        -- event = {
-        --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-        --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
-        --   "BufReadPre path/to/my-vault/**.md",
-        --   "BufNewFile path/to/my-vault/**.md",
-        -- },
-        dependencies = {
-            -- Required.
-            "nvim-lua/plenary.nvim",
-
-            -- see below for full list of optional dependencies 👇
-        },
-        opts = {
-            workspaces = {
-                -- {
-                --     name = "personal",
-                --     path = "~/vaults/personal",
-                -- },
-                {
-                    name = "work",
-                    path = "~/vaults/work",
-                },
-            },
-
-            -- see below for full list of options 👇
-        },
-    },
+    -- {
+    --     "epwalsh/obsidian.nvim",
+    --     version = "*", -- recommended, use latest release instead of latest commit
+    --     lazy = true,
+    --     ft = "markdown",
+    --     -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+    --     -- event = {
+    --     --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+    --     --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
+    --     --   "BufReadPre path/to/my-vault/**.md",
+    --     --   "BufNewFile path/to/my-vault/**.md",
+    --     -- },
+    --     dependencies = {
+    --         -- Required.
+    --         "nvim-lua/plenary.nvim",
+    --
+    --         -- see below for full list of optional dependencies 👇
+    --     },
+    --     opts = {
+    --         workspaces = {
+    --             -- {
+    --             --     name = "personal",
+    --             --     path = "~/vaults/personal",
+    --             -- },
+    --             {
+    --                 name = "work",
+    --                 path = "~/vaults/work",
+    --             },
+    --         },
+    --
+    --         -- see below for full list of options 👇
+    --     },
+    -- },
     {
         "LunarVim/bigfile.nvim",
     },
@@ -246,5 +234,22 @@ require("lazy").setup({
                 allFeatures = true,
             },
         }
-    }
+    },
+    -- lazy.nvim
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        opts = {
+            -- add any options here
+        },
+        dependencies = {
+            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+            "MunifTanjim/nui.nvim",
+            -- OPTIONAL:
+            --   `nvim-notify` is only needed, if you want to use the notification view.
+            --   If not available, we use `mini` as the fallback
+            "rcarriga/nvim-notify",
+        }
+    },
+    { "ellisonleao/glow.nvim", config = true, cmd = "Glow" }
 })
