@@ -5,9 +5,10 @@ vim.g.localleader = "\\"
 
 -- IMPORTS
 require("set")
-require("plugins")
+require("config.lazy")
 require("remap")
 require("netrw")
+
 local augroup = vim.api.nvim_create_augroup
 local ThePrimeagenGroup = augroup('ThePrimeagen', {})
 
@@ -35,5 +36,3 @@ autocmd({ "BufWritePre" }, {
     command = "%s/\\s\\+$//e",
 })
 
-vim.cmd [[colorscheme onedark_dark]]
-vim.cmd [[lua require("persistence").load()]]
