@@ -36,7 +36,7 @@
   "promise-async": { "branch": "main", "commit": "119e8961014c9bfaf1487bf3c2a393d254f337e2" },
   "rainbow_csv.nvim": { "branch": "main", "commit": "7f3fddfe813641035fac2cdf94c2ff69bb0bf0b9" },
   "rustaceanvim": { "branch": "master", "commit": "bf3d8c7bcbf20a7e7f4af36c2d5390ca6ad43281" },
-  "snacks.nvim": { "branch": "main", "commit": "109a0d207eeee49e13a6640131b44383e31d0b0f" },
+  "snacks.nvim": { "branch": "main", "commit": "bb5754738a3126b5f18c53e9d23a9a1bf57391c3" },
   "tailwindcss-colorizer-cmp.nvim": { "branch": "main", "commit": "3d3cd95e4a4135c250faf83dd5ed61b8e5502b86" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "cf48d4dfce44e0b9a2e19a008d6ec6ea6f01a83b" },
   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
