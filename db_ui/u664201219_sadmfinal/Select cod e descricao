@@ -1,0 +1,21 @@
+select
+    `ref_doencas_cids_teste2`.`cod_diretrizes`,
+`ref_doencas_cids_teste2`.`descricao`
+from
+	`ref_doencas_cids_teste2`
+left join `estatus_diretrizes_data_has_diretrizes` on
+	`estatus_diretrizes_data_has_diretrizes`.`diretrizes_cod_diretrizes` = `ref_doencas_cids_teste2`.`cod_diretrizes`
+left join `estatus_controle_diretrizes` on
+	`estatus_controle_diretrizes`.`cod_estatus_controle_diretrizes` = `estatus_diretrizes_data_has_diretrizes`.`estatus_controle_diretrizes_cod_estatus_controle_diretrizes`
+where
+	(`ref_doencas_cids_teste2`.`cod_diretrizes` in (
+	select
+		`cod_diretrizes`
+	from
+		`ref_doencas_cids_teste2`
+	where
+		(`ref_doencas_cids_teste2`.`descricao` ="Hipertensão arterial"
+			and `ref_doencas_cids_teste2`.`descricao_tipo` = "Doença Principal"))
+	and `estatus_controle_diretrizes`.`cod_estatus_controle_diretrizes` < 10)
+group by
+	`ref_doencas_cids_teste2`.`cod_diretrizes`
